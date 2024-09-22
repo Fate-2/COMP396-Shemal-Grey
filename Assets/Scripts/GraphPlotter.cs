@@ -1,19 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GraphPlotter : MonoBehaviour
 {
-
-    [SerializeField] private GameObject pointPrefab;
-
-    [SerializeField, Range(10, 200)] private int resolution = 100;
-
-    [SerializeField] private float scale = 1f;
-    void Start()
-
-    {
-
+	[SerializeField] private GameObject pointPrefab;
+	[SerializeField, Range(10, 200)] private int resolution = 100; // How many points in graph
+	[SerializeField] private float scale = 1f;
+	void Start()
+	{
 		for (int i = 0; i < resolution; i++)
 		{
 			float x = X_Formula2(i);
