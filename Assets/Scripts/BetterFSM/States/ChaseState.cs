@@ -13,7 +13,6 @@ public class ChaseState : BaseState
 
     public override void OnEnter()
     {
-        Debug.Log("TIME TO DIE!!!!!!");
         agent.speed = 4f;
         animator.Play(stateNameHash:Run);
     }
@@ -24,9 +23,6 @@ public class ChaseState : BaseState
         agent.SetDestination(_player.transform.position);
     }
 
-    public override void OnExit()
-    {
-        Debug.Log("ehh chasing is to tiring lets go do something else");
-    }
+    public override void OnExit(){}
 
 }

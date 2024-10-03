@@ -69,6 +69,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1333781164544272226}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6272550386232348002}
   m_SourcePrefab: {fileID: 100100000, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
 --- !u!1 &3076793193104474834 stripped
 GameObject:
@@ -136,3 +139,27 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _player: {fileID: 0}
   _patrolPoints: []
+--- !u!114 &6272550386232348002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3076793193104474834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b0096bf6dde214ebf27304054f8785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualDebug: 1
+  _distance: 10.42
+  _angle: 12
+  _height: 10
+  _scanFrequency: 32
+  _trackableLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  _occlusionLayers:
+    serializedVersion: 2
+    m_Bits: 65
+  _objectsInSight: []

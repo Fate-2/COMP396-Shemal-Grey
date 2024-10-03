@@ -18,14 +18,13 @@ public class PatrolState : BaseState
 
     public override void OnEnter()
     {
-        Debug.Log("Entering Patrol mode");
         agent.speed = 1.3f;
         animator.Play(stateNameHash:Walk);
     }
 
     public override void Update()
     {
-        Debug.Log("Patrolling points that i know of");
+        
         Vector3 destination = _patrolPoints[_index].transform.position;
         agent.SetDestination(destination);
 
@@ -36,8 +35,6 @@ public class PatrolState : BaseState
     }
 
 
-    public override void OnExit()
-    {
-        Debug.Log("Hmm i think imma patrol over here");
-    }
+    public override void OnExit() { }
+    
 }
