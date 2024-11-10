@@ -15,7 +15,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<T>();
+                instance = FindFirstObjectByType<T>();
                 if (instance == null)
                 {
                     var go = new GameObject(typeof(T).Name + " Generated");

@@ -77,7 +77,7 @@ public class TestVectors : MonoBehaviour
         Vector3 input = new Vector3(inputX, 0, inputZ);
         Vector3 movement = input * _speed; // Replace constant with speed variable
 
-        _rigidbody.velocity = movement;
+        _rigidbody.linearVelocity = movement;
 
         for (int index = 0; index < _points.Length; index++)
         {
