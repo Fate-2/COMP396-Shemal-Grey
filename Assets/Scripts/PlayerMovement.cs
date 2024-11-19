@@ -3,12 +3,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMovement : ValidatedMonoBehaviour
+[RequireComponent(typeof(Stamina))]
+public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float _walkSpeed;
     [SerializeField] private float _runMultiplier;
 
+    [Header("Stats")]
+    [SerializeField] private int _maxStamina = 100;
+    [SerializeField, Self] private Stamina _stamina;
+    private int _currentStamina;
     [Header("Jump")]
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _gravity;
@@ -20,20 +25,26 @@ public class PlayerMovement : ValidatedMonoBehaviour
     private float _verticalRotation;
     private Camera _mainCamera;
     private Vector3 _currentMovement = Vector3.zero;
-    private CharacterController _characterController;
+    [SerializeField, Self] private CharacterController _characterController;
 
     private PlayerInputs _playerInputs;
     [Header("New Input Actions")]
     [SerializeField] private Vector2 _moveInput, _lookInput;
     [SerializeField] private bool _isJumpPressed, _isSprintPressed;
 
+    // This can be replaced by ValidatedMonobehaviour inheritance
+    private void OnValidate()
+    {
+        this.ValidateRefs();
+    }
+
     private void Awake()
     {
         _playerInputs = new PlayerInputs();
-        _characterController = GetComponent<CharacterController>();
         _mainCamera = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
 
+        _currentStamina = _maxStamina;
         _playerInputs.Player.Move.performed += ctx => _moveInput = ctx.ReadValue<Vector2>();
         _playerInputs.Player.Move.canceled += _ => _moveInput = Vector2.zero;
 
@@ -67,10 +78,24 @@ public class PlayerMovement : ValidatedMonoBehaviour
         horizontalMovement = transform.rotation * horizontalMovement;
 
         HandleGravityAndJump();
+        HandleStaminaUsage(horizontalMovement);
 
         _currentMovement.x = horizontalMovement.x;
         _currentMovement.z = horizontalMovement.z;
         _characterController.Move(_currentMovement * (Time.deltaTime * speedMultiplier));
+    }
+    private void HandleStaminaUsage(Vector3 movement)
+    {
+        if (movement != Vector3.zero && _isSprintPressed)
+        {
+            _currentStamina -= 1;
+        }
+        else
+        {
+            _currentStamina += 1;
+        }
+        _currentStamina = Mathf.Clamp(_currentStamina, 0, _maxStamina);
+        _stamina.UpdateStamina(_currentStamina);
     }
     private void HandleGravityAndJump()
     {

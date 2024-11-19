@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "com.kylewbanks.scenerefattribute": "https://github.com/KyleBanks/scene-ref-attribute.git",
-    "com.unity.ai.navigation": "2.0.4",
+    "com.unity.2d.sprite": "1.0.0",
+    "com.unity.ai.navigation": "2.0.5",
     "com.unity.behavior": "1.0.5",
     "com.unity.cinemachine": "3.1.2",
     "com.unity.collab-proxy": "2.5.2",
@@ -11,7 +12,7 @@
     "com.unity.ide.vscode": "1.2.5",
     "com.unity.inputsystem": "1.11.2",
     "com.unity.multiplayer.center": "1.0.0",
-    "com.unity.netcode.gameobjects": "2.0.0",
+    "com.unity.netcode.gameobjects": "2.1.1",
     "com.unity.postprocessing": "3.4.0",
     "com.unity.recorder": "5.1.1",
     "com.unity.test-framework": "1.4.5",
