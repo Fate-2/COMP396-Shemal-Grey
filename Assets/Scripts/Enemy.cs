@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     public int Damage;
     public int Health;
     public string AnimatonControllerPath;
-    public GameObject Body;
+ 
 
     private StateMachine _stateMachine;
 
@@ -24,8 +24,6 @@ public class Enemy : MonoBehaviour
     {
         _player = GameObject.FindWithTag("Player");
         _animator = GetComponent<Animator>();
-        Debug.Log($"Does animpath exists? {AnimatonControllerPath}");
-        _animator.runtimeAnimatorController = Resources.Load(AnimatonControllerPath) as RuntimeAnimatorController;
         _agent = GetComponent<NavMeshAgent>();
         _patrolPoints = GameObject.FindGameObjectsWithTag("PatrolLocations");
 
@@ -34,6 +32,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        _animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(AnimatonControllerPath);
         _stateMachine = new StateMachine();
         var patrolState = new PatrolState(_agent, _animator, _patrolPoints);
         var chaseState = new ChaseState(_agent, _player, _animator);
@@ -65,6 +64,23 @@ public class Enemy : MonoBehaviour
         private int health = 100;
         private string animatonControllerPath = string.Empty;
         private GameObject body;
+
+        private bool needAudioSource = false;
+        private AudioSourceSettings audioSettings;
+        private bool needCollider = false;
+        private ColliderSettings colliderSettings;
+        public Builder WithCollider(ColliderSettings colliderSettings)
+        {
+            needCollider = true;
+            this.colliderSettings = colliderSettings;
+            return this;
+        }
+        public Builder WithAudioSource(AudioSourceSettings audioSettings)
+        {
+            needAudioSource = true;
+            this.audioSettings = audioSettings;
+            return this;
+        }
         public Builder WithAnimation(string animatonControllerPath)
         {
             this.animatonControllerPath = animatonControllerPath;
@@ -97,13 +113,25 @@ public class Enemy : MonoBehaviour
         }
         public Enemy Build()
         {
-            Enemy enemy = new GameObject(name).AddComponent<Enemy>();
+            //Enemy enemy = new GameObject(name).AddComponent<Enemy>();
+            Enemy enemy = GameObject.Instantiate(this.body).AddComponent<Enemy>();
             enemy.Name = name;
             enemy.Speed = speed;
             enemy.Damage = damage;
             enemy.Health = health;
             enemy.AnimatonControllerPath = animatonControllerPath;
-            enemy.Body = body;
+            if (needAudioSource)
+            {
+                enemy.gameObject.AddComponent<GuardSounds>().GetAudioSourceSettings(audioSettings);
+            }
+            if (needCollider)
+            {
+                var collider = enemy.gameObject.AddComponent<CapsuleCollider>();
+                collider.height = colliderSettings.ColliderHeight;
+                collider.radius = colliderSettings.ColliderRadius;
+                collider.center = new Vector3(0, colliderSettings.ColliderCenter, 0);
+            }
+
             return enemy;
         }
     }

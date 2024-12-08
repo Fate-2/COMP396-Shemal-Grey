@@ -583,6 +583,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jammo_LowPoly (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3076793193104474834, guid: b11e51693f4dee54ca96bbbc8ee05d4c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6272550386232348002, guid: b11e51693f4dee54ca96bbbc8ee05d4c, type: 3}
       propertyPath: visualDebug
       value: 0
@@ -1042,6 +1046,10 @@ PrefabInstance:
     - target: {fileID: 3076793193104474834, guid: b11e51693f4dee54ca96bbbc8ee05d4c, type: 3}
       propertyPath: m_Name
       value: Jammo_LowPoly (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076793193104474834, guid: b11e51693f4dee54ca96bbbc8ee05d4c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6272550386232348002, guid: b11e51693f4dee54ca96bbbc8ee05d4c, type: 3}
       propertyPath: visualDebug
@@ -1641,6 +1649,10 @@ PrefabInstance:
     - target: {fileID: 3076793193104474834, guid: b11e51693f4dee54ca96bbbc8ee05d4c, type: 3}
       propertyPath: m_Name
       value: Jammo_LowPoly
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076793193104474834, guid: b11e51693f4dee54ca96bbbc8ee05d4c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6272550386232348002, guid: b11e51693f4dee54ca96bbbc8ee05d4c, type: 3}
       propertyPath: visualDebug

@@ -12,5 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5c2b936c98fd54b8cbb32600a112bf, type: 3}
   m_Name: CommonEnemyData
   m_EditorClassIdentifier: 
-  animControllerPath: Assets/Animations/GuardAnim.controller
+  animControllerPath: GuardAnim
   body: {fileID: -927199367670048503, guid: 82a2914d8f86c62488456950c8330e38, type: 3}
+  audioSourceSettings:
+    AudioSourcePlayOnAwake: 0
+    AudioSourceSpatialBlend: 1
+    AudioSourceMinDistance: 1
+    AudioSourceMaxDistance: 10
+    AudioRolloffMode: 1
+    audioClip: {fileID: 8300000, guid: 80d10106a1fcd584bb064d4d3de94dfe, type: 3}
+  colliderSettings:
+    ColliderCenter: 0.8
+    ColliderRadius: 0.5
+    ColliderHeight: 1.5

@@ -11,12 +11,8 @@ public class EnemySpawner : MonoBehaviour
             .WithDamage(15)
             .WithAnimation(enemyData.animControllerPath)
             .WithBody(enemyData.body)
-            .Build();
-        //Instantiate(NewEnemy);
-        var Goblin = new Enemy.Builder()
-            .WithName("Goblin")
-            .WithDamage(5)
-            .WithSpeed(12)
+            .WithAudioSource(enemyData.audioSourceSettings)
+            .WithCollider(enemyData.colliderSettings)
             .Build();
     }
 }
