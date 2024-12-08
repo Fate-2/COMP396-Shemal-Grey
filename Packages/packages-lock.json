@@ -1,14 +1,5 @@
 {
   "dependencies": {
-    "com.crashkonijn.goap": {
-      "version": "https://github.com/crashkonijn/GOAP.git?path=/Package#3.0.25",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.collections": "1.2.4"
-      },
-      "hash": "74347060621462e8324ce96d1d168b7f5b137041"
-    },
     "com.kylewbanks.scenerefattribute": {
       "version": "https://github.com/KyleBanks/scene-ref-attribute.git",
       "depth": 0,
@@ -85,7 +76,7 @@
     },
     "com.unity.collections": {
       "version": "2.5.1",
-      "depth": 1,
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.8.17",
@@ -265,7 +256,7 @@
     },
     "com.unity.test-framework.performance": {
       "version": "3.0.3",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.test-framework": "1.1.31",
