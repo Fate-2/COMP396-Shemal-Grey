@@ -672,7 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19925b6b65787cf439172e5e095b51fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configInitializer: {fileID: 0}
+  configInitializer: {fileID: 438424965}
   setConfigFactories: []
   goapSetConfigFactories:
   - {fileID: 438424964}
@@ -1330,15 +1330,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7477df6f067a6a0459f5e5e6cce3ddff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.739645
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7477df6f067a6a0459f5e5e6cce3ddff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.05000019
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7477df6f067a6a0459f5e5e6cce3ddff, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.3535757
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7477df6f067a6a0459f5e5e6cce3ddff, type: 3}
       propertyPath: m_LocalRotation.w
